@@ -1,19 +1,32 @@
 let msg: "hello" = "hello";
 
-const port3000: number = 3000;
-const port3001: number = 3001;
+export const port3000: number = 3000;
+export const port3001: number = 3001;
 
-function startServer(
+type Config = { protocol: "http" | "https"; port: 3000 | 3001 };
+type Role = {
+	role: string;
+};
+type ConfigWithRole = Config & Role;
+
+const serverConfig: ConfigWithRole = {
+	protocol: "https",
+	port: 3001,
+	role: "admin",
+};
+type StartFunction = (protocol: "http" | "https", port: 3000 | 3001) => string;
+
+const startServer: StartFunction = (
 	protocol: "http" | "https",
 	port: 3000 | 3001
-): "server started " {
+): "server started " => {
 	if (port === port3000 || port === port3001) {
 		console.log(`Server started  on ${protocol}://server:${port}`);
 	}
 	return "server started ";
-}
+};
 
-startServer("http", 3001);
+startServer(serverConfig.protocol, serverConfig.port);
 
 function createAnimation(
 	id: string | number,
