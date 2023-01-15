@@ -68,3 +68,16 @@ function printReport(data: ITotalWarehouse): string {
 }
 
 console.log(printReport(totalData));
+
+const items = [
+	{ name: "test", value: 4 },
+	{ name: "dawd", value: 18 },
+	{ name: "hthr", value: 6 },
+	{ name: "rewr", value: 1 },
+];
+
+const test = items.reduce((total, item) => {
+	console.log(`${item.name}`);
+	return total + `${item.name} ,`;
+}, "");
+console.log(test);
