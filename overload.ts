@@ -27,3 +27,4 @@ function calculateArea(a: number, b?: number): Square | Rect {
 }
 
 calculateArea(1);
+calculateArea(1, 2);
