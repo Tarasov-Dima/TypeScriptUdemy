@@ -21,3 +21,10 @@ const hh: ICompany = {
 };
 
 printDebts(hh, "name", "debts");
+
+const google: ICompany = {
+	name: "google",
+	debts: 5000000,
+};
+
+type GoogleKeys = keyof typeof google;
